@@ -1,10 +1,10 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { TableModule } from "./components/table/table.module";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from './components/table/table.module';
+import { DynamicFormModule } from './components/dynamic-form/dynamic-form.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +12,8 @@ import { TableModule } from "./components/table/table.module";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TableModule
+    TableModule,
+    DynamicFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

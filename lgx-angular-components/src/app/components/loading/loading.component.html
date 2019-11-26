@@ -1,0 +1,16 @@
+<div [ngSwitch]="type">
+    <div *ngSwitchCase="'ProgressBarLoading'">
+        <mat-progress-bar color="primary" mode="indeterminate">
+        </mat-progress-bar>
+    </div>
+    <div *ngSwitchCase="'ProgressSpinnerLoading'" fxLayout="row" fxLayoutAlign="center center">
+        <mat-progress-spinner color="primary" mode="indeterminate" diameter="30">
+        </mat-progress-spinner>
+    </div>
+    <div *ngSwitchCase="'SimpleLoading'" fxLayout="row" fxLayoutAlign="center center">
+        <span>Loading ...</span>
+    </div>
+    <div *ngSwitchDefault>
+        <div class="loading" fxLayout="row" fxLayoutAlign="center center"></div>
+    </div>
+</div>
