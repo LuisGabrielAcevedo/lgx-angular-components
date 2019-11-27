@@ -11,8 +11,8 @@ import { IDynamicFormSelectComponentDirective } from './select-field.directive';
 import {
   EDynamicFormFieldTypes,
   IDynamicFormMaterialData,
-  IDynamicFormField,
-  IDynamicFormModel
+  IDynamicFormModel,
+  IDynamicFormField
 } from '../../dynamic-form.interfaces';
 import { IDynamicFormFieldComponent } from './select-field.component';
 import { AsyncAutocompleteComponent } from '../../fields/async-autocomplete/async-autocomplete.component';
@@ -34,7 +34,7 @@ import { StringListComponent } from '../../fields/string-list/string-list.compon
 @Component({
   selector: 'app-select-field',
   template: `
-    <ng-template dynamic-form-select-component-directive></ng-template>
+    <ng-template dynamicFormSelectComponentDirective></ng-template>
   `
 })
 export class DynamicFormSelectComponent implements OnInit, OnChanges {

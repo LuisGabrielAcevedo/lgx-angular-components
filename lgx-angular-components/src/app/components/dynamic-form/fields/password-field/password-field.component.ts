@@ -4,7 +4,7 @@ import { BaseFieldComponent } from '../base-field.mixin';
 @Component({
   selector: 'app-password-field',
   templateUrl: './password-field.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class PasswordFieldComponent extends BaseFieldComponent implements OnInit, OnDestroy {
   public hide = true;

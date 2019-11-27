@@ -44,14 +44,14 @@ export class FormComponent {
     this.form = this.fb.group({});
     this.form.addControl(this.formatId, this.fb.control(null));
 
-    const IDynamicFormFormatFieldsResponse: IDynamicFormFormatFieldsResponse = this.dynamicFormService.formatFields(
-      this.fieldsConfig,
+    const dynamicFormFormatFieldsResponse: IDynamicFormFormatFieldsResponse = this.dynamicFormService.formatFields(
+      cloneDeep(this.fieldsConfig),
       this.form,
       this.columns
     );
 
-    mainGroupsFormatted = IDynamicFormFormatFieldsResponse.mainGroupsFormatted;
-    this.groupIndexes = IDynamicFormFormatFieldsResponse.groupIndexes;
+    mainGroupsFormatted = dynamicFormFormatFieldsResponse.mainGroupsFormatted;
+    this.groupIndexes = dynamicFormFormatFieldsResponse.groupIndexes;
 
     return mainGroupsFormatted;
   }
@@ -82,11 +82,7 @@ export class FormComponent {
 
   protected updateModel(): void {
     Object.keys(this.form.value).forEach(field => {
-      if (field === 'userInformation.birthdate') {
-        // console.log(typeof this.form.value[field]);
-        // console.log(this.form.value[field]);
-      }
-      let value;
+      let value: any;
       if (this.form.value[field]) {
         if (
           this.form.value[field] instanceof File ||

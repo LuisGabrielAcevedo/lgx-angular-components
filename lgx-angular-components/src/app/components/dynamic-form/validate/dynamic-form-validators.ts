@@ -1,5 +1,5 @@
 import { DynamicFormValidator } from './dynamic-form-validator';
-import { Validators, FormGroup } from '@angular/forms';
+import { Validators, FormGroup, AbstractControl, ValidationErrors } from '@angular/forms';
 import { DynamicFormValidationsFunctions } from './dynamic-form-validations';
 
 export class DynamicFormValidators {
@@ -180,6 +180,17 @@ export class DynamicFormValidators {
         })
     );
   }
+
+  public static compareWith(data: IDynamicFormValidatorDataWithCondition) {
+    return new DynamicFormValidator(
+      'compareWith',
+      `compareWith error`,
+      (form: FormGroup) =>
+        DynamicFormValidationsFunctions.compareWith(form.controls[data.field], data.condition, {
+          compareWith: true
+        })
+    );
+  }
 }
 
 export interface IDynamicFormValidatorData {
@@ -194,4 +205,9 @@ export interface IDynamicFormValidatorDataWithValue
 export interface IDynamicFormValidatorDataWithField
   extends IDynamicFormValidatorData {
   field: string;
+}
+
+export interface IDynamicFormValidatorDataWithCondition {
+  field: string;
+  condition: (c1: AbstractControl, c2: AbstractControl) => boolean;
 }

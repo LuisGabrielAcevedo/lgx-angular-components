@@ -22,7 +22,7 @@ export class RowComponent implements OnInit {
   ngOnInit() {
     this.fields.forEach(field => {
       if (field.flexConfig && field.flexConfig.rowTitle) {
-        this.rowTitle = field.flexConfig!.rowTitle!;
+        this.rowTitle = field.flexConfig.rowTitle;
       }
     });
   }

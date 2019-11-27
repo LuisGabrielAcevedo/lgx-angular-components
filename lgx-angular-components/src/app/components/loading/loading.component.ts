@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ILoadingType } from './loading.interfaces';
+import { ELoadingType } from './loading.interfaces';
 
 @Component({
   selector: 'app-loading',
@@ -7,7 +7,7 @@ import { ILoadingType } from './loading.interfaces';
   styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit {
-  @Input() public type: ILoadingType;
+  @Input() public type: ELoadingType;
   ngOnInit() {
   }
 }

@@ -9,7 +9,7 @@ import ObjectID from 'bson-objectid';
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class AutocompleteComponent extends BaseFieldComponent
   implements OnInit, OnDestroy {
@@ -48,7 +48,7 @@ export class AutocompleteComponent extends BaseFieldComponent
   }
 
   public displayFn(option: object): string {
-    return !option ? '' : option[this.field.options.associationText];
+    return !option ? '' : option[this.associationText()];
   }
 
   public autocompleteOptionSelected(option: MatAutocompleteSelectedEvent) {

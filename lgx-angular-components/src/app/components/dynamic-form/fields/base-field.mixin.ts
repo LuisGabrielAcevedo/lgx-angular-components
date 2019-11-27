@@ -36,6 +36,8 @@ export class BaseFieldComponent {
       ? this.field.options.placeholder
       : ''
   public multiple = () => this.field.options && this.field.options.multiple;
+  public associationText = () => this.field.options && this.field.options.associationText ? this.field.options.associationText : 'text';
+  public associationValue = () => this.field.options && this.field.options.associationValue ? this.field.options.associationValue : 'value';
   public dependValue = () => this.field.options && this.field.options.depend;
   public hasDisableCondition = () =>
     this.field.options && this.field.options.disableCondition

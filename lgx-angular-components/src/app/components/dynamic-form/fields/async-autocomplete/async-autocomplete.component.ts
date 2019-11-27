@@ -8,7 +8,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 @Component({
   selector: 'app-async-autocomplete',
   templateUrl: './async-autocomplete.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class AsyncAutocompleteComponent extends BaseFieldComponent implements OnInit, OnDestroy {
   filteredOptions: Observable<any[]>;
@@ -35,7 +35,7 @@ export class AsyncAutocompleteComponent extends BaseFieldComponent implements On
   }
 
   public displayFn(option: object): string {
-    return !option ? '' : option[this.field.options.associationText];
+    return !option ? '' : option[this.associationText()];
   }
 
   ngOnDestroy() {

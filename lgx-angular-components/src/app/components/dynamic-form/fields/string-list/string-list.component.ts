@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-string-list',
   templateUrl: './string-list.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class StringListComponent extends BaseFieldComponent implements OnInit, OnDestroy {
   public item: FormControl = new FormControl('');

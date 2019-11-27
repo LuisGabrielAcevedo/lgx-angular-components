@@ -9,8 +9,8 @@
       [formControlName]="key()"
       [compareWith]="compareFn"
     >
-      <mat-option *ngFor="let option of options" [value]="option[field.options.associationValue]">
-        {{option[field.options.associationText]}}
+      <mat-option *ngFor="let option of options" [value]="option[associationValue()]">
+        {{option[associationText()]}}
       </mat-option>
     </mat-select>
     <mat-error *ngIf="validateControl()">{{errorMessage()}}</mat-error>

@@ -7,7 +7,7 @@
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="autocompleteOptionSelected($event)"
       [displayWith]="displayFn.bind(this)">
       <mat-option *ngFor="let option of options" [value]="option">
-        {{option[this.field.options.associationText]}}
+        {{option[associationText()]}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

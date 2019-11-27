@@ -4,7 +4,7 @@ import { BaseFieldComponent } from '../base-field.mixin';
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class ImageComponent extends BaseFieldComponent implements OnInit {
   @Input() defaultImage: string;

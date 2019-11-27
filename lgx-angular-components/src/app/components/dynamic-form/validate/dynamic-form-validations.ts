@@ -33,4 +33,16 @@ export class DynamicFormValidationsFunctions {
       return valid ? null : error;
     };
   }
+
+  public static compareWith(
+    control2: AbstractControl,
+    condition: (c1: AbstractControl, c2: AbstractControl) => boolean,
+    error: ValidationErrors
+  ): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors => {
+      if (!control.value) { return null; }
+      const valid = condition(control.value, control2.value);
+      return valid ? null : error;
+    };
+  }
 }

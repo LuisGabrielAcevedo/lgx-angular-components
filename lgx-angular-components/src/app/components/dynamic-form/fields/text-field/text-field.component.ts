@@ -5,7 +5,7 @@ import { IDynamicFormModel } from '../../dynamic-form.interfaces';
 @Component({
   selector: 'app-text-field',
   templateUrl: './text-field.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class TextFieldComponent extends BaseFieldComponent
   implements OnInit, OnDestroy {

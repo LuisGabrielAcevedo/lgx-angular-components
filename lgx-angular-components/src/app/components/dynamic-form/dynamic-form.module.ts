@@ -33,7 +33,7 @@ import { SimpleFormComponent } from './components/simple-form/simple-form.compon
 import { TabsFormComponent } from './components/tabs-form/tabs-form.component';
 import { StepsFormComponent } from './components/steps-form/steps-form.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { DynamicFormService } from './dynamic-form.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanelsFormComponent } from './components/panels-form/panels-form.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DynamicFormSelectComponentModule } from './components/select-field/select-field.module';
@@ -71,7 +71,9 @@ import { StringListModule } from './fields/string-list/string-list.module';
     MatExpansionModule,
     DynamicFormSelectComponentModule,
     DynamicFormRowModule,
-    StringListModule
+    StringListModule,
+    // Verificar si es necesario
+    BrowserAnimationsModule
   ],
   entryComponents: [
     AsyncAutocompleteComponent,

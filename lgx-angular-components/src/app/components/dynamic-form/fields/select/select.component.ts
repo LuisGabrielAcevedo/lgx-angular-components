@@ -9,7 +9,7 @@ import ObjectID from 'bson-objectid';
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrls: ['../../dynamic-form.component.css']
+  styleUrls: ['../../dynamic-form.component.scss']
 })
 export class SelectComponent extends BaseFieldComponent implements OnInit, OnDestroy {
   constructor(public dynamicFormService: DynamicFormService) {

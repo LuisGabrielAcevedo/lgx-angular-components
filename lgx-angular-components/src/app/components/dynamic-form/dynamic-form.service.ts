@@ -168,7 +168,7 @@ export class DynamicFormService {
   ): IDynamicFormField[][] {
     const flex: number = Math.floor(100 / columns);
     fields.map(fieldItem => {
-      if (fieldItem.flexConfig) {
+      if (!fieldItem.flexConfig) {
         fieldItem.flexConfig = {};
       }
       fieldItem.flexConfig.flex = flex;

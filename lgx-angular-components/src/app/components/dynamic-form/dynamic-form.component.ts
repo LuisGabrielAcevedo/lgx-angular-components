@@ -13,7 +13,7 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  styleUrls: ['./dynamic-form.component.css']
+  styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent extends FormComponent
   implements OnInit, OnChanges {

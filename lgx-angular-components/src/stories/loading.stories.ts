@@ -1,5 +1,6 @@
 import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { LoadingModule } from 'src/app/components/loading/loading.module';
+import { ELoadingType } from 'src/app/components/loading/loading.interfaces';
 
 storiesOf('Loading', module)
   .addDecorator(
@@ -16,7 +17,7 @@ storiesOf('Loading', module)
     return {
       template: `<app-loading [type]="type"></app-loading>`,
       props: {
-        type: 'SimpleLoading'
+        type: ELoadingType.simple
       }
     };
   })
@@ -24,7 +25,7 @@ storiesOf('Loading', module)
     return {
       template: `<app-loading [type]="type"></app-loading>`,
       props: {
-        type: 'ProgressBarLoading'
+        type: ELoadingType.progressBar
       }
     };
   })
@@ -32,7 +33,7 @@ storiesOf('Loading', module)
     return {
       template: `<app-loading [type]="type"></app-loading>`,
       props: {
-        type: 'ProgressSpinnerLoading'
+        type: ELoadingType.progressSpinner
       }
     };
   });

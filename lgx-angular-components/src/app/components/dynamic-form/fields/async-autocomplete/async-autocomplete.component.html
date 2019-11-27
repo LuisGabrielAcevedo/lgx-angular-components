@@ -10,7 +10,7 @@
           <mat-spinner style="margin: 10px;" diameter="30"></mat-spinner>
       </div>
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option[this.field.options.associationText]}}
+        {{option[associationText()]}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
