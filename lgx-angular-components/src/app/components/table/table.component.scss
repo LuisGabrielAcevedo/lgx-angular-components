@@ -1,0 +1,52 @@
+@import "./themes/material.scss";
+@import "./themes/dark.scss";
+
+.table {
+    font-size: 12px;
+    margin-bottom: 80px;
+    &__headers {
+        padding: 4px 12px;
+        height: 48px;
+    }
+    &__data {
+        &__item {
+            position: relative;
+            &__row {
+                padding: 4px 12px;
+                min-height: 48px;
+            }
+            &__expand {
+                padding: 4px 12px;
+            }
+            &__rowDialog {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                margin: 0.5px;
+                &__content {
+                    background: #eee;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    &__multiActions {
+        position: fixed;
+        bottom: 10px;
+        height: 60px;
+        width: 100%;
+        &__content {
+            background-color: #eee;
+            height: 100%;
+            padding: 0 12px;
+        }
+    }
+}
+
+
+p {
+    margin: 0;
+}

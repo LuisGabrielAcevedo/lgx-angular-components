@@ -1,93 +1,26 @@
-import { Component } from '@angular/core';
-import { EDynamicFormFieldTypes } from './components/dynamic-form/dynamic-form.interfaces';
-import { ITableItem, ETableComponents, ITableHeader } from './components/table2/table/table.interfaces';
+import { Component, OnInit } from '@angular/core';
+import { NgxSimpleCryptService } from './services/ngx-simple-crypt.service';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-    config = [
-        {
-            name: 'Text field',
-            key: 'textField',
-            component: EDynamicFormFieldTypes.textField
-        },
-        {
-            name: 'Number field',
-            key: 'numberField',
-            component: EDynamicFormFieldTypes.numericField
-        },
-        {
-            name: 'Password field',
-            key: 'passwordField',
-            component: EDynamicFormFieldTypes.passwordField
-        },
-        {
-            name: 'Checkbox',
-            key: 'checkbox',
-            component: EDynamicFormFieldTypes.checkbox
-        },
-        {
-            name: 'Switch',
-            key: 'switch',
-            component: EDynamicFormFieldTypes.switch
-        }
-    ];
+export class AppComponent implements OnInit {
+  title = 'lgx-angular-components';
 
-    public headers: ITableHeader[] = [
-        {
-            label: 'Fecha',
-            key: 'date',
-            component: ETableComponents.text,
-            visibleOnMobile: true
-        },
-        {
-            label: 'N° de propuesta',
-            key: 'proposalNumber',
-            component: ETableComponents.text,
-            visibleOnMobile: true
-        },
-        {
-            label: 'DNI',
-            key: 'docNumber',
-            component: ETableComponents.text
-        },
-        {
-            label: 'Status',
-            key: 'status',
-            component: ETableComponents.text
-        }
-    ];
+  constructor(public ngxSimpleCry: NgxSimpleCryptService) {
+    // ngx-simple-crypt
+    const password = this.ngxSimpleCry.encode('95666081');
+    console.log(password);
+    const decodePassword = this.ngxSimpleCry.decode(password);
+    console.log(decodePassword);
+    const user = this.ngxSimpleCry.encodeObject({password: 95666081 , user: 'Luis Gabriel Acevedo'});
+    console.log(user);
+    const decodeUser = this.ngxSimpleCry.decodeObject(user);
+    console.log(decodeUser);
+  }
 
-    public data: ITableItem[] = [
-        {
-            date: 400,
-            proposalNumber: 65465,
-            docNumber: 29747505,
-            fullName: 'Diego Dalairac',
-            vehicle: '500 1.4 CABRIO',
-            value: '$ 721.395',
-            status: 'Pendiente'
-        },
-        {
-            date: 400,
-            proposalNumber: 29747505,
-            docNumber: 29747505,
-            fullName: 'Aprobada',
-            vehicle: '500 1.4 CABRIO',
-            value: '$ 721.395',
-            status: 'Pendiente'
-        },
-        {
-            date: 400,
-            proposalNumber: 29747505,
-            docNumber: 29747505,
-            fullName: 'Aprobada',
-            vehicle: '500 1.4 CABRIO',
-            value: '$ 721.395',
-            status: 'Pendiente'
-        }
-    ];
+  ngOnInit() {
+  }
 }

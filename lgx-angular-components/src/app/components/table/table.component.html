@@ -1,1 +1,49 @@
-<p>table works!</p>
+<div [ngClass]="theme">
+    <div class="table">
+        <!-- Headers -->
+        <div class="table__headers" fxLayout="row" fxLayoutAlign="center center">
+            <mat-checkbox *ngIf="multiSelectionBy" [formControl]="selectedAll" [(indeterminate)]="indeterminate" fxFlex="5" color="primary"></mat-checkbox>
+            <span fxFlex="5" *ngIf="showIndex">#</span>
+            <p *ngFor="let header of headers" fxFlex>
+                {{header.name}}
+            </p>
+            <span fxFlex="5" *ngFor="let button of rowActions"></span>
+        </div>
+        <!-- Loading -->
+        <app-loading *ngIf="loading" [type]="loadingType"></app-loading>
+        <!-- Default message -->
+        <div *ngIf="!data.length && !loading" fxLayout="row" fxLayoutAlign="center center">
+            <p>{{defaultMessage}}</p>
+        </div>
+        <!-- Data -->
+        <div *ngIf="data.length && !loading" class="table__data">
+            <div class="table__data__item" *ngFor="let item of dataToRender; index as i">
+                <!-- Row dialog -->
+                <div *ngIf="openDialogRows.includes(i)" class="table__data__item__rowDialog" fxLayout="row" fxLayoutAlign="end"  (click)="rowClick(i)">
+                    <app-row-dialog></app-row-dialog>
+                </div>
+                <!-- Item -->
+                <div class="table__data__item__row" fxLayout="row" fxLayoutAlign="center center" (click)="rowClick(i)">
+                    <mat-checkbox #checkbox *ngIf="multiSelectionBy" fxFlex="5" color="primary" (change)="selectItem($event, item)"></mat-checkbox>
+                    <span fxFlex="5" *ngIf="showIndex">{{i + 1}}</span>
+                    <div *ngFor="let header of headers" fxFlex>
+                        <app-row-component [header]="header" [item]="item"></app-row-component>
+                    </div>
+                    <app-button fxFlex="5" *ngFor="let button of rowActions" [button]="button"></app-button>
+                </div>
+                <!-- Expanded item -->
+                <div class="table__data__item__expand" *ngIf="expandedRows.includes(i)" fxLayout="row" fxLayoutAlign="center center">
+                    <p>Expand component</p>
+                </div>
+            </div>
+        </div>
+        <!-- Paginator -->
+        <div *ngIf="pagination || autoPagination" fxLayout="row" fxLayoutAlign="center">
+            <app-paginator [pagination]="pagination" (changePagination)="changePagination($event)"></app-paginator>
+        </div>
+        <!-- Multi actions -->
+        <div *ngIf="multiSelectionBy && selectedItems.length" fxLayout="row" fxLayoutAlign="center" class="table__multiActions">
+            <app-multi-actions fxFlex [selectedItems]="selectedItems"></app-multi-actions>
+        </div>
+    </div>
+</div>

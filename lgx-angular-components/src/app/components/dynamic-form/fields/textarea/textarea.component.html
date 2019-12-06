@@ -1,7 +1,0 @@
-<div [formGroup]="form" *ngIf="visibleValue">
-  <mat-form-field appearance="{{appearance()}}" [floatLabel]="floatLabel()">
-    <mat-label>{{label()}}<span class="form-required" *ngIf="required()">*</span></mat-label>
-    <textarea type="text" [disableControl]="disableValue" [formControlName]="key()" matInput placeholder="{{placeholder()}}"></textarea>
-    <mat-error *ngIf="validateControl()">{{errorMessage()}}</mat-error>
-  </mat-form-field>
-</div>

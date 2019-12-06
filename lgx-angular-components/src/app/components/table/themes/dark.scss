@@ -1,0 +1,21 @@
+.dark {
+    .table {
+        color: #fff;
+        background-color: #343a40;
+        &__headers {
+            font-weight: 600;
+            border-bottom: 1px solid #dee2e6;
+        }
+        &__data {
+            &__item {
+                border-bottom: 1px solid #dee2e6;
+                // &__row {
+                    
+                // }
+                &__expand {
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+}
