@@ -69,7 +69,16 @@ storiesOf('Table', module)
     })
     .add('Auto pagination', () => {
         return {
-            template: `<app-table autoPagination [headers]="headers" [data]="data" itemsPerPage="5"></app-table>`,
+            template: `<app-table autoPagination [headers]="headers" [data]="data" itemsPerPage="2"></app-table>`,
+            props: {
+                headers: userHeaders,
+                data: usersData
+            }
+        };
+    })
+    .add('See more button', () => {
+        return {
+            template: `<app-table showIndex seeMoreButton [headers]="headers" [data]="data" itemsPerPage="2"></app-table>`,
             props: {
                 headers: userHeaders,
                 data: usersData

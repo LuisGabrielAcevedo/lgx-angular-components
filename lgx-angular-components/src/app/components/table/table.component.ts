@@ -24,7 +24,7 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges {
   @Input() public tablePagination: ITablePagination;
   @Input() public multiSelectionBy: string;
   @Input() public pagination: ITablePagination;
-  @Input() public itemsPerPage = 2;
+  @Input() public itemsPerPage = 5;
   @Output() public tableChanges: EventEmitter<ITableChanges> = new EventEmitter();
 
   public theme = 'material';
@@ -34,6 +34,7 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges {
   public expandRows = false;
   public dialogRows = false;
   public infiniteScroll = false;
+  public seeMoreButton = false;
 
   public dataToRender: ITableItem[] = [];
   public expandedRows: number[] = [];
@@ -78,9 +79,13 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges {
         offset,
         offset + this.pagination.itemsPerPage
       );
-      this.dataToRender = data;
+      this.dataToRender = this.seeMoreButton
+        ? [...this.dataToRender, ...data]
+        : data;
     } else {
-      this.dataToRender = this.data;
+      this.dataToRender = this.seeMoreButton
+      ? [...this.dataToRender, ...this.data]
+      : this.data;
     }
   }
 
@@ -141,7 +146,22 @@ export class TableComponent implements OnInit, OnDestroy, OnChanges {
     if (this.autoPagination) {
       this.pagination = pagination;
       this.setData();
+    } else {
+      this.tableChangesData = {
+        pagination
+      };
+      this.tableChanges.emit(this.tableChangesData);
     }
+  }
+
+  seeMoreAction() {
+    this.pagination.page ++;
+    this.changePagination(this.pagination);
+  }
+
+  seeMoreCondition() {
+    const pages: number = Math.ceil(this.pagination.total / this.pagination.itemsPerPage);
+    return this.seeMoreButton && pages !== this.pagination.page;
   }
 
   ngOnDestroy() {

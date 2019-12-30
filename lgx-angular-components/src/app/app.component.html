@@ -1,0 +1,12 @@
+<app-table
+    showIndex
+    seeMoreButton
+    multiSelect
+    [multiSelectionBy]="'_id'"
+    [headers]="headers"
+    [data]="data"
+    [loading]="loading"
+    [loadingType]="loadingType"
+    [pagination]="pagination"
+    (tableChanges)="tableChanges($event)"
+><app-table></app-table>

@@ -14,6 +14,7 @@ import { RowDialogComponent } from './table-components/row-dialog/row-dialog.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoadingModule } from './table-components/loading/loading.module';
 import { PaginatorModule } from './table-components/paginator/paginator.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,12 @@ import { PaginatorModule } from './table-components/paginator/paginator.module';
     LoadingModule,
     PaginatorModule,
     // Material
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ],
-  exports: [TableDirectivesModule, TableComponent]
+  exports: [
+    TableDirectivesModule,
+    TableComponent
+  ]
 })
 export class TableModule { }

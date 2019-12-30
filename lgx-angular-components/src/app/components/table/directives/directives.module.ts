@@ -7,6 +7,7 @@ import { DarkDirective } from './dark/dark.directive';
 import { SelectRowComponentDirective } from './select-row-component/select-row-component.directive';
 import { ExpandRowsDirective } from './expand-rows/expand-rows.directive';
 import { InfiniteScrollDirective } from './infinite-scroll/infinite-scroll.directive';
+import { SeeMoreButtonDirective } from './see-more-button/see-more-button.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InfiniteScrollDirective } from './infinite-scroll/infinite-scroll.direc
     DarkDirective,
     SelectRowComponentDirective,
     ExpandRowsDirective,
-    InfiniteScrollDirective],
+    InfiniteScrollDirective,
+    SeeMoreButtonDirective],
   imports: [
     CommonModule
   ],
@@ -26,6 +28,7 @@ import { InfiniteScrollDirective } from './infinite-scroll/infinite-scroll.direc
     MobileDirective,
     DarkDirective,
     SelectRowComponentDirective,
-    ExpandRowsDirective]
+    ExpandRowsDirective,
+    SeeMoreButtonDirective]
 })
 export class TableDirectivesModule { }

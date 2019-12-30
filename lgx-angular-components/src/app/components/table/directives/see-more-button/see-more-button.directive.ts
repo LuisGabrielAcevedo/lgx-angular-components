@@ -2,12 +2,11 @@ import { Directive } from '@angular/core';
 import { TableComponent } from '../../table.component';
 
 @Directive({
-  selector: '[appInfiniteScroll]'
+  selector: '[seeMoreButton]'
 })
-export class InfiniteScrollDirective {
+export class SeeMoreButtonDirective {
 
   constructor(el: TableComponent) {
-    el.infiniteScroll = true;
+    el.seeMoreButton = true;
   }
-
 }

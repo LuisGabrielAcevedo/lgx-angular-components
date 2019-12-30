@@ -1,2 +1,7 @@
-<mat-paginator [length]="pagination.total" [pageIndex]="pagination.page - 1" [pageSize]="pagination.itemsPerPage" [pageSizeOptions]="pagination.itemsPerPageOptions || [2, 5, 10, 20, 100]" (page)="pageParams($event)">
+<mat-paginator
+    [length]="pagination.total"
+    [pageIndex]="pagination.page - 1"
+    [pageSize]="pagination.itemsPerPage"
+    [pageSizeOptions]="pagination.itemsPerPageOptions || [2, 5, 10, 20, 100]"
+    (page)="pageParams($event)">
 </mat-paginator>
